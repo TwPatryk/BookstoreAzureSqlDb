@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url:  jdbc:sqlserver://mytaskserver.database.windows.net:1433;database=myTaskDB;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: ptworek
+    password: EA8E1693CD1D5EC529296660365AB32B#
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect:  org.hibernate.dialect.SQLServer2012Dialect
+
+server:
+  port: 9191
