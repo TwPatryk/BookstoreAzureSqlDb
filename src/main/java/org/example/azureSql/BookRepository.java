@@ -2,5 +2,5 @@ package org.example.azureSql;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface BookRepository extends JpaRepository<Book, Integer> {
 }

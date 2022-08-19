@@ -3,32 +3,42 @@ package org.example.azureSql;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 @RestController
 public class SpringBootAzureApplication {
 
     @Autowired
-    private EmployeeRepository repository;
+    private BookRepository repository;
 
-    @PostMapping("/employee")
-    public Employee addEmployee(@RequestBody Employee employee) {
-        return repository.save(employee);
+    @PostMapping("/book")
+    public Book addBook(@RequestBody Book book) {
+        return repository.save(book);
     }
 
-    @GetMapping("/employees")
-    public List<Employee> getEmployees() {
+    @GetMapping("/books")
+    public List<Book> getBooks() {
         return repository.findAll();
     }
 
 
+    @GetMapping("/book/{id}")
+    public Optional<Book> getBook(@PathVariable int id) {
+        //return getBookById(id);
+        return repository.findById(id);
+    }
+
+    @DeleteMapping("/book/{id}")
+    public void deleteBook(@PathVariable int id) {
+        repository.deleteById(id);
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(SpringBootAzureApplication.class, args);
+
     }
 }

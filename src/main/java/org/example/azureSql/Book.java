@@ -15,12 +15,12 @@ import javax.persistence.Table;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class Book {
 
     @Id
     @GeneratedValue
     private  int id;
-    private String name;
-    private String departament;
-    private long salary;
+    private String title;
+    private String category;
+    private boolean availability;
 }
